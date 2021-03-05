@@ -2,11 +2,7 @@ body
 {
 	height: 100vh;
 	width: 100%;
-  /*
-	background-image: url(https://wallpapercave.com/wp/wp1836700.jpg);
-	background-position: center;
-	background-size: cover;
-  */
+
   background-color: #222222;
 	padding: , 5%;
 	box-sizing: border-box;
@@ -103,8 +99,3 @@ footer{
   font-weight: 700;
   text-decoration:underline;
 }
-
-
-
-/*for the posts page*/
-
