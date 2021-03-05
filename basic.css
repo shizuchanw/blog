@@ -84,14 +84,13 @@ footer{
   width: 80%
 }
 
-#about-title{
+#about-title, #posts-title{
   color: #f6f5f5;
-  font-size: 60px;
+  font-size: 40px;
   margin-top: 24px;
   margin-bottom: 15px;
   letter-spacing: 0.06em;
   margin: 0;
-
 }
 
 #about-main{
@@ -100,7 +99,12 @@ footer{
 }
 
 #project{
+  font-family: Courier, monospace;
   font-weight: 700;
   text-decoration:underline;
 }
+
+
+
+/*for the posts page*/
 
