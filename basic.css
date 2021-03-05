@@ -1,0 +1,43 @@
+body{
+	color: #8e8d88;
+	background-color: #eeede8;
+  text-align: center;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  margin: auto;
+}
+
+h1{
+  font-family: sans-serif;
+    letter-spacing: 0.06em;
+    margin: 0;
+}
+h2{
+    margin-top: 0;
+    margin-bottom: 1.5em;
+    font-size: 0.7em;
+    font-style: italic;
+    opacity: 0.9;
+}
+nav{
+    font-family: Courier, monospace;
+    display: block;
+    margin-top: 0.5em;
+}
+footer{
+    font-size: 0.6em;
+    opacity: 0.6;
+}
+#contact{
+  font-size: 0.7em;
+  opacity: 0.9;
+}
+
+
+.hover{
+  transition: color 0.5s;
+}
+.hover:hover {
+  color: #dec2b6;
+}
+
