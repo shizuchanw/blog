@@ -28,6 +28,12 @@ h1{
 h2{
   color: #e6e5e5;
 }
+img{
+  margin-left: 50px;
+}
+#photo_frame{
+  margin-left: 0px;
+}
 
 footer{
     font-size: 0.8em;
@@ -36,6 +42,28 @@ footer{
     text-align: center;
     width: 100%
 }
+
+
+.button{
+  background: linear-gradient(45deg, #87adfe, #ff77cd);
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+
+.slider{
+  -webkit-appearance: none;
+  background: #e6e5e5;
+  height: 3px;
+}
+
+
 
 a{
   color: #f6f5f5;
@@ -54,4 +82,5 @@ a:hover {
     font-family: Courier, monospace;
     display: block;
     margin-top: 0.5em;
+    margin-bottom: 60px;
 }

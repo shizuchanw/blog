@@ -19,7 +19,7 @@
 		<div>
 			<h2>Featured Image</h2>
             <span>Click for a random image, or select one from below.</span><br>
-            <img src="posts/drawings/sakura.jpg" id="photo_frame" onclick="changePhoto()" width="600">
+            <img src="drawings/sakura.jpg" id="photo_frame" onclick="changePhoto()" width="500">
             <br><span id="photo_caption"></span><br>
         </div>
 
@@ -28,12 +28,12 @@
         	<table>
         		<tbody>
         			<tr>
-        				<td><img src="posts/drawings/icon.png" alt="icon" width="200"></td>
-        				<td><img src="posts/drawings/beach.jpg" alt="beach" width="200"></td>
+        				<td><img src="drawings/icon.png" alt="icon" width="200"></td>
+        				<td><img src="drawings/beach.jpg" alt="beach" width="200"></td>
         			</tr>
         			<tr>
-        				<td><img src="posts/drawings/sakura.jpg" alt="sakura" width="200"></td>
-        				<td><img src="posts/drawings/happy_sunday.jpg" alt="happy sunday" width="200"></td>
+        				<td><img src="drawings/sakura.jpg" alt="sakura" width="200"></td>
+        				<td><img src="drawings/happy_sunday.jpg" alt="happy sunday" width="200"></td>
         			</tr>
         		</tbody>
         	</table>
@@ -44,17 +44,17 @@
 		<div>
 			<h2>Your Turn to Try!</h2>
 			<!-- the buttons for the canvas -->
-			<input type="button" onclick="clearCanvas()" value="Clear Canvas">
-            <input type="button" onclick="newCanvas()" value="Save Canvas">
-            <input type="button" onclick="loadImage()" value="Restore Canvas">
+			<input type="button" class="button" onclick="clearCanvas()" value="Clear Canvas">
+            <input type="button" class="button" onclick="newCanvas()" value="Save Canvas">
+            <input type="button" class="button" onclick="loadImage()" value="Restore Canvas">
             <br>
             <!-- the RGB selector -->
             <label for="red">Red</label>
-            <input type="range" id="red" min="0" max="255" value="0" step="1" oninput="updateColors()">
+            <input type="range" class="slider" id="red" min="0" max="255" value="0" step="1" oninput="updateColors()">
             <label for="green">Green</label>
-            <input type="range" id="green" min="0" max="255" value="0" step="1" oninput="updateColors()">
+            <input type="range" class="slider" id="green" min="0" max="255" value="0" step="1" oninput="updateColors()">
             <label for="blue">Blue</label>
-            <input type="range" id="blue" min="0" max="255" value="0" step="1" oninput="updateColors()">
+            <input type="range" class="slider" id="blue" min="0" max="255" value="0" step="1" oninput="updateColors()">
             <br>
             <!-- the canvas -->
             <div id="drawing_area"><canvas></canvas></div>
