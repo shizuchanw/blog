@@ -4,7 +4,7 @@ body{
   background-color: #000000;
   
   text-align: center;
-  margin: 100px;
+  vertical-align: middle;
   line-height: 1.2;
   scroll-behavior: smooth;
 }
