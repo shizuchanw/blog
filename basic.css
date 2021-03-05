@@ -49,6 +49,16 @@ a:hover {
   color: #70c2ff;
 }
 
+#wechatBox{
+  position: relative;
+}
+#QRcode{
+  position: absolute;  
+  display: none;
+}
+#wechatBox:hover #QRcode{
+  display: block;
+}
 
 main{
   position: relative;
