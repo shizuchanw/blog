@@ -261,6 +261,9 @@ Drawing.prototype.set_color = function(r, g, b) {
 //document.getElementById('swatch').style.backgroundColor = "rgb(" + colors[randIndex][0] + "," + colors[randIndex][1] + "," + colors[randIndex][2] + ")";
 const color = '#70c2ff'
 document.getElementById('swatch').style.backgroundColor = color;
+document.getElementById('red').value = 112;
+document.getElementById('green').value = 194;
+document.getElementById('blue').value = 255;
 let drawing = new Drawing(document.getElementsByTagName('canvas')[0], w, h, color);
 window.onload = function() {
     drawing.start();
