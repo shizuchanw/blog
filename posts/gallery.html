@@ -28,12 +28,12 @@
         	<table>
         		<tbody>
         			<tr>
-        				<td><img src="drawings/icon.png" alt="icon" width="200"></td>
+        				<td><img src="drawings/icon.png" alt="icon i created for this website" width="200"></td>
         				<td><img src="drawings/beach.jpg" alt="beach" width="200"></td>
         			</tr>
         			<tr>
         				<td><img src="drawings/sakura.jpg" alt="sakura" width="200"></td>
-        				<td><img src="drawings/happy_sunday.jpg" alt="happy sunday" width="200"></td>
+        				<td><img src="drawings/happy_sunday.jpg" alt="what makes a happy sunday" width="200"></td>
         			</tr>
         		</tbody>
         	</table>
@@ -46,7 +46,7 @@
 			<!-- the buttons for the canvas -->
 			<input type="button" class="button" onclick="clearCanvas()" value="Clear Canvas">
             <input type="button" class="button" onclick="newCanvas()" value="Save Canvas">
-            <input type="button" class="button" onclick="loadImage()" value="Restore Canvas">
+            <input type="button" class="button" onclick="loadCanvas()" value="Restore Canvas">
             <br>
             <!-- the RGB selector -->
             <label for="red">Red</label>
@@ -55,6 +55,7 @@
             <input type="range" class="slider" id="green" min="0" max="255" value="0" step="1" oninput="updateColors()">
             <label for="blue">Blue</label>
             <input type="range" class="slider" id="blue" min="0" max="255" value="0" step="1" oninput="updateColors()">
+            <input type="button" id="swatch" value=" ">
             <br>
             <!-- the canvas -->
             <div id="drawing_area"><canvas></canvas></div>
@@ -63,15 +64,10 @@
 
         <div>
             <!-- where we store the user's drawings -->
-            <h2>Past Drawings</h2>
+            <h2>Guest Past Drawings</h2>
             <div id="past_drawings"></div>
-            <!-- use a web form to interact with server -->
-            <!-- to be changed to AJAX request -->
-            <!-- <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" style="display: none;">
-                <input type="text" name="canvas" id="toPHP_text">
-                <input type="submit" id="toPHP_submit">
-            </form> -->
 		</div>
+        
 		<a href="index.html" class="gohome">return to homepage</a>
 	</main>
 	<footer>
