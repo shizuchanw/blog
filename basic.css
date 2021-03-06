@@ -124,6 +124,13 @@ footer{
   padding: 10px;
 }
 
+#about-intro{
+  font-family: "Libre Baskerville", Baskerville, Lora, serif;
+  font-size: 1.2em;
+  width: 80%;
+  line-height: 1.6;
+}
+
 .about-collapsible{
   background-color: #222222;
   font-family: "Libre Baskerville", Baskerville, Lora, serif;
