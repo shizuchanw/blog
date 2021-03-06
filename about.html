@@ -15,26 +15,99 @@
 		<h1 id="about-title">About</h1>
 	<header>
 	<main id="about-main">
+		
 		<p>
 			I'm a third year UCLA undergrad majoring in <span class="highlight">Mathematical Economics</span> and <span class="highlight">Japanese</span>, with a minor in <span class="highlight">Accounting</span> and specialization in <span class="highlight">Computation.</span><br>
 		</p>
+		<br>
+		
 
-		<h2>My Math Background</h2>
-			<ul>
-				<li>Optimization (Math 164)</li>
-				<li>Probability Theory (Math 170ES)</li>
-				<li>Numerical Methods (Math 151A)</li>
-				<li>Next quarter: Machine Learning (Math 156), Stochastic Process (Math 171).</li>
-			</ul>
+		<div>
 
-		<h2>My Coding Experiences</h2>
+		<button type="button" class="about-collapsible">
+			<img src="icons/menu.png" class="menu-icon">
+			<h2 class="row">My Coding Experiences</h2>
+		</button>
+			<div class="about-content">
 			<ul>
 				<li>I took some <span class="highlight">C++</span> (CS31 PIC10B) and <span class="highlight">Python</span> (codeacademy), including some basic sort and search algorithms. I'm planning on taking CS32-CS35L in the following quarters.</li>
 				<li>Outside of school, I got interested in Web Programming, and now have some experiences in <span class="highlight">HTML5, PHP, JavaScript, CSS3, and SQLite3</span> as I worked on a <a href="https://github.com/shizuchanw/game1" id="project">project</a> of creating a web game.</li>
 			</ul>
+			</div>
+		</div>
+
+		<div>
+		<button type="button" class="about-collapsible">
+			<img src="icons/menu.png" class="menu-icon">
+			<h2 class="row">My Math Background</h2>
+		</button>
+			<div class="about-content">
+			<ul>
+				<li><span class="highlight">Optimization</span> (Math 164)</li>
+				<li><span class="highlight">Probability Theory</span> (Math 170ES)</li>
+				<li><span class="highlight">Numerical Methods</span> (Math 151A)</li>
+				<li>Next quarter: <span class="highlight">Machine Learning</span> (Math 156), <span class="highlight">Stochastic Process</span> (Math 171).</li>
+			</ul>
+			</div>
+		</div>
+
+		<div>
+		<button type="button" class="about-collapsible">
+			<img src="icons/menu.png" class="menu-icon">
+			<h2 class="row">My Business Background</h2>
+		</button>
+			<div class="about-content">
+			<p class="dark">My past experiences: </p>
+			<ul>
+				<li><span class="highlight">Summer Financial Analyst</span> - China Construction Bank</li>
+				<li><span class="highlight">Tax &amp; Reimbursement Chair</span> - CSSA</li>
+				<li><span class="highlight">Treasurer</span> - UCLA Kendo</li>
+				<li><span class="highlight">VITA</span> (Volunteer Income Tax Assistant) at UCLA</li>
+			</ul>
+			<p class="dark">Relavent courses: </p>
+			<ul>
+				<li><span class="highlight">Mathematics-Finance</span> (Math 174E, Econ 106F)</li>
+				<li><span class="highlight">Real Estate Finance &amp; Investment</span> (MGMT 180)</li>
+				<li><span class="highlight">Advanced Accounting</span> (MGMT 120AB, 122, 124)</li>
+				<li><span class="highlight">Business Law</span> (MGMT 108)</li>
+				<li><span class="highlight">Tax Law</span> (individual tax MGMT 127A, corporate tax MGMT 127B)</li>
+			</ul>
+			</div>
+		</div>
+
+		<div>
+		<button type="button" class="about-collapsible">
+			<img src="icons/menu.png" class="menu-icon">
+			<h2 class="row">My Interests</h2>
+		</button>
+			<div class="about-content">
+			<p class="dark">Outside of school I enjoy <a href="gallery.html" id="drawing">drawing</a> and music.</p>
+			<p class="dark">I enjoy doing all kinds of volunteering: planting trees, cleaning beaches, visiting nursing homes and orphanages, etc.</p>
+			<p class="dark">I also like learning languages. Recently I'm reading 坊っちゃん (Botchan) by 夏目 漱石 (Natsume Soseki) in Japanese to challenge myself lol.</p>
+			</div>
+		</div>
+
+		<script>
+			var coll = document.getElementsByClassName("about-collapsible");
+			var i;
+
+			for (i = 0; i < coll.length; i++) {
+  				coll[i].addEventListener("click", function() {
+    				this.classList.toggle("active");
+    				var content = this.nextElementSibling;
+    				if (content.style.display === "block") {
+      					content.style.display = "none";
+    				} else {
+      					content.style.display = "block";
+    				}
+  				});
+			}
+		</script>
+
+
 	</main>
 	<a href="index.html" class="gohome">return to homepage</a>
-	<footer>
+	<footer id="about-footer">
 		<small>&copy; Flora Wang, <script>document.write(new Date().getFullYear());</script></small>
 	</footer>
 </body>
