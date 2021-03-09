@@ -6,7 +6,6 @@ let globalImgData;
 /*
 to do list:
 1. add an eraser
-2. add a slider to change stroke size
 3. 取色器？
 4. guest's name
 */
@@ -34,7 +33,7 @@ function changePhoto(path){
 	//if click on a picture
     if(path) {
         frame.src = path;
-        frame.scrollIntoView();
+        frame.scrollIntoView({ behavior: 'smooth'});
         return;
     }
 
@@ -192,6 +191,13 @@ function updateColors() {
     document.cookie = "blue=" + b;
 }
 
+/*
+This function updates the size of the stroke
+*/
+function updateThickness(){
+    let size = document.getElementById('size').value;
+    drawing.set_strokeSize(size);
+}
 
 
 
@@ -211,7 +217,8 @@ function Drawing(canvas, width, height, color) {
 
     this.context = canvas.getContext('2d');
     this.context.strokeStyle = color;
-    this.context.lineWidth = 3;
+    this.context.lineWidth = 5;
+    this.context.lineCap = "round";
 
     this.x = 0;
     this.y = 0;
@@ -268,7 +275,12 @@ This function changes the color of our stroke
 Drawing.prototype.set_color = function(r, g, b) {
     this.context.strokeStyle = "rgb(" + r + "," + g + "," + b + ")";
 }
-
+/*
+This function changes the size of our stroke
+*/
+Drawing.prototype.set_strokeSize = function(size) {
+    this.context.lineWidth = size;
+}
 
 //const colors = [[255, 0, 0], [0, 255, 0], [0, 0, 255]];
 //const randIndex = Math.floor(Math.random() * colors.length);
@@ -278,6 +290,7 @@ document.getElementById('swatch').style.backgroundColor = color;
 document.getElementById('red').value = 112;
 document.getElementById('green').value = 194;
 document.getElementById('blue').value = 255;
+document.getElementById('size').value = 5;
 let drawing = new Drawing(document.getElementsByTagName('canvas')[0], w, h, color);
 window.onload = function() {
     drawing.start();
@@ -329,3 +342,57 @@ window.onload = function() {
     request.send();
     */
 }
+
+
+
+
+
+
+///////////////////////
+
+
+
+
+
+
+
+//For the comments section
+const comment_box = document.getElementById("comment-box");
+const guest_name = document.getElementById("guest-name");
+// if (comment_box.value.length > 20)
+// {
+//     comment_box.style.height = comment_box.style.height*2;
+// }
+
+
+function newComment() {
+    //check whether either box is empty or contain spaces
+    let alert_msg = "";
+    if(guest_name.value === "")
+            alert_msg = alert_msg.concat("Please enter a username.\n");
+    else
+    {
+        const space = new RegExp(' ');
+        if(space.test(guest_name.value))
+            alert_msg = alert_msg.concat("Username cannot contain space.\n");
+    }
+    if(comment_box.value === "")
+        alert_msg = alert_msg.concat("Comment cannot be empty.\n");
+    
+    //alert user if invalid
+    if (alert_msg !== "")
+        alert(alert_msg);
+    else
+    {
+        //append the comment to Guest Comment Section
+        let comment = guest_name.value + ": " + comment_box.value;
+        document.getElementById("past_comments").append(comment);
+        //clear the username and comment box
+        comment_box.value="";
+        guest_name.value="";
+    }
+}
+
+
+
+
