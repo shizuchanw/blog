@@ -58,24 +58,34 @@ function changeCaption(caption) {
 
 ///////////////////////
 
-// function downloadImage() {
-//     let imageURL = drawing.canvas.toDataURL('image/png');
-//     let request = new XMLHttpRequest();
-//     request.responseType = 'blob';
 
-//     request.onload = function() {
-//         let a = document.createElement('a');
-//         a.href = window.URL.createObjectURL(request.response);
-//         a.download = 'canvas.png';
-//         a.style.display = 'none';
-//         document.body.appendChild(a);
-//         a.click();
-//         a.remove();
-//     }
+/*
+This function allows the user to download their own drawings!
+*/
+function downloadImage() {
+    let imageURL = drawing.canvas.toDataURL('image/png');
 
-//     request.open('GET', imageURL);
-//     request.send();
-// }
+    let request = new XMLHttpRequest();
+    request.responseType = 'blob';
+
+    request.onload = function() {
+        //download through an anchor
+        let a = document.createElement('a');
+
+        //an url made of the response (blob) from the request (which is drawing.canvas in png)
+        a.href = window.URL.createObjectURL(request.response);
+        a.download = 'canvas.png';
+        a.style.display = 'none';
+
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+    }
+
+
+    request.open('GET', imageURL);
+    request.send();
+}
 
 //for the canvas
 
@@ -119,26 +129,30 @@ function saveCanvas() {
     let imgData=drawing.context.getImageData(0, 0, drawing.canvas.width, drawing.canvas.height);
     globalImgData = imgData.data;
 
-    //send this canvas to the server
-    // drawing.canvas.toBlob(function(blob) {
-    //     let image = new File([blob], 'tmp.png', {
-    //         type: 'image/png'
-    //     });
+    //make the canvas info a blob, then make a file "image" with the blob info
+    /*
+    drawing.canvas.toBlob(function(blob) {
+        let image = new File([blob], 'tmp.png', {
+            type: 'image/png'
+        });
 
-    //     const request = new XMLHttpRequest();
+        //start the XML Http request below
+        const request = new XMLHttpRequest();
+        let formdata = new FormData();
+        formdata.append('image', image);
 
-    //     let formdata = new FormData();
-    //     formdata.append('image', image);
+        //here we will send the image data to php, 
+        //and the php file will save data to "Queue" folder and return some response
+        request.open('POST', 'process_images.php');
+        request.onload = function() {
+            if(this.status === 200) {
+                console.log(this.responseText.trim());
+            }
+        };
 
-    //     request.open('POST', 'process_images.php');
-    //     request.onload = function() {
-    //         if(this.status === 200) {
-    //             console.log(this.responseText.trim());
-    //         }
-    //     };
-
-    //     request.send(formdata);
-    // });
+        request.send(formdata);
+    });
+    */
 }
 /*
 This function loads our most recent saved canvas and put it on the current canvas, 
@@ -259,7 +273,7 @@ Drawing.prototype.set_color = function(r, g, b) {
 //const colors = [[255, 0, 0], [0, 255, 0], [0, 0, 255]];
 //const randIndex = Math.floor(Math.random() * colors.length);
 //document.getElementById('swatch').style.backgroundColor = "rgb(" + colors[randIndex][0] + "," + colors[randIndex][1] + "," + colors[randIndex][2] + ")";
-const color = '#70c2ff'
+const color = '#70c2ff' //112, 194, 255
 document.getElementById('swatch').style.backgroundColor = color;
 document.getElementById('red').value = 112;
 document.getElementById('green').value = 194;
@@ -293,20 +307,25 @@ window.onload = function() {
         document.getElementById('swatch').style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
     }
 
+    /*
+    //get data of past drawings from "Saved" folder and append
+    const request = new XMLHttpRequest();
+    request.onload = function() {
+        if(this.status === 200) {
+            let documents = this.responseText.trim();
+            //assume that we will get a string of file names separated by ,
+            documents = documents.split(',');
+            //for each file name we create a new Image object
+            //get the source, then append it to the the past drawings section
+            documents.forEach(name => {
+                let newImage = new Image();
+                newImage.src = 'saved/' + name;
+                document.getElementById('past_drawings').append(newImage);
+            });
+        }
+    };
 
-    // const request = new XMLHttpRequest();
-    // request.onload = function() {
-    //     if(this.status === 200) {
-    //         let documents = this.responseText.trim();
-    //         documents = documents.split(',');
-    //         documents.forEach(name => {
-    //             let newImage = new Image();
-    //             newImage.src = 'saved/' + name;
-    //             document.getElementById('past_drawings').append(newImage);
-    //         });
-    //     }
-    // };
-
-    // request.open('GET', 'get_images.php');
-    // request.send();
+    request.open('GET', 'get_images.php');
+    request.send();
+    */
 }
