@@ -7,7 +7,7 @@ body
   box-sizing: border-box;
   position: relative;
   color: #cacecf;
-  font-family: "Libre Baskerville", Baskerville, Lora, serif;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
 
   text-align: left;
   margin-left: 50px;
@@ -27,11 +27,13 @@ h1{
   margin-top: 100px;
   margin-bottom: 30px;
   letter-spacing: 0.06em;
+  font-family: "Libre Baskerville", Baskerville, Lora, serif;
 }
 
 h2{
   color: #eeeded;
   font-weight: 530;
+  font-family: "Libre Baskerville", Baskerville, Lora, serif;
 }
 
 nav{
@@ -69,19 +71,18 @@ footer{
 .gohome{
     font-family: Courier, monospace;
     display: inline-block;
-    margin-top: 0.5em;
+    margin-top: 1em;
     margin-bottom: 50px;
 }
 
 
-/*homepage*/
+/*homepage styling*/
 #home-title{
   color: #f6f5f5;
   font-size: 60px;
   margin-top: 24px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   letter-spacing: 0.08em;
-  margin: 0;
 }
 #home-body
 {
@@ -95,6 +96,11 @@ footer{
   margin: auto;
 }
 
+/*
+the following code allows
+a QR code to show up when
+hover over wechat's icon
+*/
 #wechatBox{
   position: relative;
 }
@@ -105,6 +111,7 @@ footer{
 #wechatBox:hover #QRcode{
   display: block;
 }
+
 
 #home-footer{
   position: absolute;
@@ -141,11 +148,12 @@ footer{
   border: none;
   text-align: left;
   outline: none;
+  display: inline-block;
 }
 .menu-icon{
   float: left;
   margin: 0;
-  padding-top: 2px;
+  padding-top: 3px;
   padding-right: 8px;
 } 
 .row{
@@ -220,4 +228,27 @@ td img{
 canvas{
   margin-top: 30px;
   background-color: white;
+}
+
+/*for the posts page*/
+#posts-main{
+  float: left;
+  width: 60%;
+  margin-left: 50px;
+}
+
+aside{
+  float: right;
+  width: 25%;
+  font-size: 0.75em;
+  padding-right: 5px;
+}
+
+aside ul{
+  padding-left: 1.5em;
+}
+#posts-footer{
+  display: inline-block;
+  width: 100%; 
+
 }
