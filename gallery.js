@@ -1,5 +1,5 @@
 const filenames = [];
-const w = 600;
+const w = 700;
 const h = 450;
 let globalImgData;
 
@@ -8,6 +8,7 @@ to do list:
 1. add an eraser
 3. 取色器？
 4. guest's name
+5. AJAX store comment info
 */
 
 //collect file names; assign EventListener to each photo and the frame
@@ -58,33 +59,7 @@ function changeCaption(caption) {
 ///////////////////////
 
 
-/*
-This function allows the user to download their own drawings!
-*/
-function downloadImage() {
-    let imageURL = drawing.canvas.toDataURL('image/png');
 
-    let request = new XMLHttpRequest();
-    request.responseType = 'blob';
-
-    request.onload = function() {
-        //download through an anchor
-        let a = document.createElement('a');
-
-        //an url made of the response (blob) from the request (which is drawing.canvas in png)
-        a.href = window.URL.createObjectURL(request.response);
-        a.download = 'canvas.png';
-        a.style.display = 'none';
-
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-    }
-
-
-    request.open('GET', imageURL);
-    request.send();
-}
 
 //for the canvas
 
@@ -127,31 +102,6 @@ function saveCanvas() {
 	//get the current canvas and save it to a global variable globalImgData
     let imgData=drawing.context.getImageData(0, 0, drawing.canvas.width, drawing.canvas.height);
     globalImgData = imgData.data;
-
-    //make the canvas info a blob, then make a file "image" with the blob info
-    /*
-    drawing.canvas.toBlob(function(blob) {
-        let image = new File([blob], 'tmp.png', {
-            type: 'image/png'
-        });
-
-        //start the XML Http request below
-        const request = new XMLHttpRequest();
-        let formdata = new FormData();
-        formdata.append('image', image);
-
-        //here we will send the image data to php, 
-        //and the php file will save data to "Queue" folder and return some response
-        request.open('POST', 'process_images.php');
-        request.onload = function() {
-            if(this.status === 200) {
-                console.log(this.responseText.trim());
-            }
-        };
-
-        request.send(formdata);
-    });
-    */
 }
 /*
 This function loads our most recent saved canvas and put it on the current canvas, 
@@ -174,6 +124,71 @@ function loadCanvas() {
     let canvases = document.getElementById("past_drawings");
     canvases.removeChild(canvases.lastChild);
 }
+
+/*
+This function allows the user to download their own drawings!
+*/
+function downloadImage() {
+    let imageURL = drawing.canvas.toDataURL('image/png');
+
+    let request = new XMLHttpRequest();
+    request.responseType = 'blob';
+
+    request.onload = function() {
+        //download through an anchor
+        let a = document.createElement('a');
+
+        //an url made of the response (blob) from the request (which is drawing.canvas in png)
+        a.href = window.URL.createObjectURL(request.response);
+        a.download = 'canvas.png';
+        a.style.display = 'none';
+
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+    }
+
+
+    request.open('GET', imageURL);
+    request.send();
+}
+
+/*
+This function allows user to submit their work to a queue page!
+not developed right now as github doesn't support php
+*/
+// function submitToQueue(){
+
+//     //ask for guest's username
+//     let username = prompt("Please leave your name!", "Guest");
+
+//     //make the canvas info a blob, then make a file "image" with the blob info
+//     drawing.canvas.toBlob(function(blob) {
+//         let image = new File([blob], 'tmp.png', {
+//             type: 'image/png'
+//         });
+
+//         //start the XML Http request below
+//         const request = new XMLHttpRequest();
+//         let formdata = new FormData();
+//         formdata.append('image', image);
+
+//         //here we will send the image data to php, 
+//         //and the php file will save data to "Queue" folder and return some response
+//         request.open('POST', 'process_images.php');
+//         request.onload = function() {
+//             if(this.status === 200) {
+//                 console.log(this.responseText.trim());
+//             }
+//         };
+
+//         request.send(formdata);
+//         request.send(username);
+//     });
+    
+
+// }
+
 
 /*
 This function updates the color of the stroke and save it to cookies

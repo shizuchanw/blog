@@ -48,7 +48,11 @@
             <input type="button" class="button" onclick="newCanvas()" value="Save Canvas">
             <input type="button" class="button" onclick="loadCanvas()" value="Restore Canvas">
             <input type="button" class="button" onclick="downloadImage()" value="Download Canvas">
+            <!-- <input type="button" class="button-cool" onclick="submitToQueue()" value="Submit Your Work!"> -->
             <br>
+            <!-- the slider for stroke size -->
+            <label for="size">Size</label>
+            <input type="range" class="slider" id="size" min="1" max="50" step="0.2" oninput="updateThickness()">
             <!-- the RGB selector -->
             <label for="red">Red</label>
             <input type="range" class="slider" id="red" min="0" max="255" value="0" step="1" oninput="updateColors()">
@@ -58,9 +62,6 @@
             <input type="range" class="slider" id="blue" min="0" max="255" value="0" step="1" oninput="updateColors()">
             <input type="button" id="swatch" value=" ">
             <br>
-            <!-- the slider for stroke size -->
-            <label for="size">Size</label>
-            <input type="range" class="slider" id="size" min="1" max="50" step="0.2" oninput="updateThickness()">
             <!-- the canvas -->
             <div id="drawing_area"><canvas></canvas></div>
             <br>

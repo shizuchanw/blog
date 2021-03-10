@@ -216,11 +216,32 @@ td img{
   background: linear-gradient(45deg, #6d93e3, #de5bae);
 }
 
+.button-cool{
+  background: linear-gradient(45deg, #f96778, #edc080);
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+.button-cool:hover {
+  cursor: grab;
+  background: linear-gradient(45deg, #de5968, #d9ae71);
+}
+
+
 .slider{
   -webkit-appearance: none;
   background: #e6e5e5;
   height: 3px;
+  width: 110px;
 }
+
 
 #swatch{
   margin-left: 10px;
