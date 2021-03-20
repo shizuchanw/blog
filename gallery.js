@@ -157,37 +157,37 @@ function downloadImage() {
 This function allows user to submit their work to a queue page!
 not developed right now as github doesn't support php
 */
-// function submitToQueue(){
+function submitToQueue(){
 
-//     //ask for guest's username
-//     let username = prompt("Please leave your name!", "Guest");
+    //ask for guest's username
+    let username = prompt("Please leave your name!", "Guest");
 
-//     //make the canvas info a blob, then make a file "image" with the blob info
-//     drawing.canvas.toBlob(function(blob) {
-//         let image = new File([blob], 'tmp.png', {
-//             type: 'image/png'
-//         });
+    //make the canvas info a blob, then make a file "image" with the blob info
+    drawing.canvas.toBlob(function(blob) {
+        let image = new File([blob], 'tmp.png', {
+            type: 'image/png'
+        });
 
-//         //start the XML Http request below
-//         const request = new XMLHttpRequest();
-//         let formdata = new FormData();
-//         formdata.append('image', image);
+        //start the XML Http request below
+        const request = new XMLHttpRequest();
+        let formdata = new FormData();
+        formdata.append('image', image);
 
-//         //here we will send the image data to php, 
-//         //and the php file will save data to "Queue" folder and return some response
-//         request.open('POST', 'process_images.php');
-//         request.onload = function() {
-//             if(this.status === 200) {
-//                 console.log(this.responseText.trim());
-//             }
-//         };
+        //here we will send the image data to php, 
+        //and the php file will save data to "Queue" folder and return some response
+        request.open('POST', 'process_images.php');
+        request.onload = function() {
+            if(this.status === 200) {
+                console.log(this.responseText.trim());
+            }
+        };
 
-//         request.send(formdata);
-//         request.send(username);
-//     });
+        request.send(formdata);
+        request.send(username);
+    });
     
 
-// }
+}
 
 
 /*
