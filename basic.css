@@ -308,3 +308,13 @@ aside ul{
   width: 100%; 
 
 }
+
+/*for the music page*/
+.music-main{
+  float: left;
+  width: 65%;
+  margin-left: 50px;
+}
+.music-footer{
+  display: inline-block;
+  width: 100%; 
